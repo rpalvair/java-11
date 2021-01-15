@@ -1,6 +1,7 @@
 package com.palvair;
 
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class StringImprovements {
@@ -15,15 +16,12 @@ public class StringImprovements {
 
     private List<String> strip(final String multiLinesString, final boolean removeBlank) {
         return multiLinesString.lines()
-                .filter(s -> removeBlank(removeBlank, s))
+                .filter(predicateRemoveBlank(removeBlank))
                 .map(String::strip)
                 .collect(Collectors.toList());
     }
 
-    private boolean removeBlank(final boolean removeBlank, final String s) {
-        if (removeBlank) {
-            return !s.isBlank();
-        }
-        return true;
+    private Predicate<String> predicateRemoveBlank(final boolean removeBlank) {
+        return removeBlank ? Predicate.not(String::isBlank) : s -> true;
     }
 }
