@@ -1,4 +1,4 @@
-package com.palvair;
+package com.palvair.java11;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

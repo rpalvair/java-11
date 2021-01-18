@@ -1,4 +1,4 @@
-package com.palvair;
+package com.palvair.java11;
 
 import java.io.IOException;
 import java.net.URI;
